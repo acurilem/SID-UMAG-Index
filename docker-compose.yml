@@ -1,0 +1,29 @@
+version: '3.2'
+
+services:
+  sid_umag_index_frontend:
+    container_name: SID-UMAG-Index-Frontend
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - NUXT_SESSION_SESSION_STORAGE_OPTIONS_OPTIONS_URL=${NUXT_SESSION_SESSION_STORAGE_OPTIONS_OPTIONS_URL}
+    expose:
+      - 3000
+    env_file:
+      - .env
+    networks:
+      - umag_network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.sid_index_frontend.rule=Host(`sid3-prod.test-citiaps.cl`)"
+      - "traefik.http.routers.sid_index_frontend.entrypoints=websecure"
+      - "traefik.http.routers.sid_index_frontend.tls=true"
+      # - "traefik.http.routers.web.tls.certresolver=letsencrypt"
+      - "traefik.http.services.sid_index_frontend.loadbalancer.server.port=3000"
+      - "traefik.http.routers.sid_index_frontend.service=sid_index_frontend"
+      - "traefik.http.routers.sid_index_frontend.middlewares=redirect-to-session@file"
+
+networks:
+  umag_network:
+    external: true

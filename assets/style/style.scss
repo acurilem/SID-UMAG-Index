@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400&display=swap');
+
+* {
+  margin: 0;
+}
+
+html, body {
+  font-family: 'Asap', sans-serif;
+  height: 100%;
+  font-size: 14px;
+}
+
+.umag-color-1{
+  color: $color-primary;
+}
+
+.umag-color-2{
+  color: $color-secondary;
+}
+
+h1, h2, h3{
+  color: $color-primary;
+  margin-bottom: 30px;
+}
+h4, h5, h6{
+  color: $color-secondary;
+  margin-bottom: 20px;
+}
+
+p{
+  color: $color-primary;
+  font-size: 14px;
+	margin: 10px 0;
+}
+a{
+  text-decoration: none;
+  color: $color-secondary;
+}
+a:hover{
+  text-decoration:underline;
+  /*color: $color-primary;*/
+}
+
+.icon-gradient{
+	background: linear-gradient(302deg,$color-primary 0%, $color-secondary 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+}
