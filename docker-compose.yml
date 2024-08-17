@@ -16,7 +16,7 @@ services:
       - umag_network
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.sid_index_frontend.rule=Host(`sid3-prod.test-citiaps.cl`)"
+      - "traefik.http.routers.sid_index_frontend.rule=Host(`sid.pichimalen.org`)"
       - "traefik.http.routers.sid_index_frontend.entrypoints=websecure"
       - "traefik.http.routers.sid_index_frontend.tls=true"
       # - "traefik.http.routers.web.tls.certresolver=letsencrypt"
